@@ -6122,24 +6122,6 @@ namespace Assistant
             chkAlt.Checked = (hk.Mod & ModKeys.Alt) != 0;
             chkShift.Checked = (hk.Mod & ModKeys.Shift) != 0;
             chkPass.Checked = hk.SendToUO;
-
-            if ((hk.LocName >= (int) LocString.DrinkHeal && hk.LocName <= (int) LocString.DrinkAg &&
-                 !Client.Instance.AllowBit(FeatureBit.PotionHotkeys)) ||
-                (hk.LocName >= (int) LocString.TargCloseRed && hk.LocName <= (int) LocString.TargCloseCriminal &&
-                 !Client.Instance.AllowBit(FeatureBit.ClosestTargets)) ||
-                (((hk.LocName >= (int) LocString.TargRandRed && hk.LocName <= (int) LocString.TargRandNFriend) ||
-                  (hk.LocName >= (int) LocString.TargRandEnemyHuman && hk.LocName <= (int) LocString.TargRandCriminal)
-                 ) && !Client.Instance.AllowBit(FeatureBit.RandomTargets)))
-            {
-                LockControl(chkCtrl);
-                LockControl(chkAlt);
-                LockControl(chkShift);
-                LockControl(chkPass);
-                LockControl(key);
-                LockControl(unsetHK);
-                LockControl(setHK);
-                LockControl(dohotkey);
-            }
         }
 
         private KeyData GetSelectedHK()

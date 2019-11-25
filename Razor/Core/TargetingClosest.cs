@@ -183,9 +183,6 @@ namespace Assistant
 
         private static void ClosestTarget(params int[] noto)
         {
-            if (!Client.Instance.AllowBit(FeatureBit.ClosestTargets))
-                return;
-
             var list = new List<Mobile>();
             foreach (var m in World.MobilesInRange(12))
                 if ((!FriendsManager.IsFriend(m.Serial) || noto.Length > 0 && noto[0] == 0) &&
@@ -226,9 +223,6 @@ namespace Assistant
 
         private static void ClosestHumanoidTarget(params int[] noto)
         {
-            if (!Client.Instance.AllowBit(FeatureBit.ClosestTargets))
-                return;
-
             var list = new List<Mobile>();
             foreach (var m in World.MobilesInRange(12))
             {
@@ -274,9 +268,6 @@ namespace Assistant
 
         private static void ClosestMonsterTarget(params int[] noto)
         {
-            if (!Client.Instance.AllowBit(FeatureBit.ClosestTargets))
-                return;
-
             var list = new List<Mobile>();
             foreach (var m in World.MobilesInRange(12))
             {
@@ -322,9 +313,6 @@ namespace Assistant
 
         private static void ClosestFriendTarget()
         {
-            if (!Client.Instance.AllowBit(FeatureBit.ClosestTargets))
-                return;
-
             var list = new List<Mobile>();
             foreach (var m in World.MobilesInRange(12))
                 if (FriendsManager.IsFriend(m.Serial) && !m.Blessed && !m.IsGhost && m.Serial != World.Player.Serial &&
